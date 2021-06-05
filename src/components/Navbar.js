@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { menuData } from '../data/MenuData';
 import { Button }from './Button';
+import { AiOutlineBars } from 'react-icons/ai';
 
 const Nav= styled.nav`
     height:60px;
@@ -30,8 +31,19 @@ const Logo = styled(Link)`
     font-style: italic;
     `;
 
-const MenuBars = styled.i`
+const MenuBars = styled(AiOutlineBars)`
     display: none;
+    color: #fff;
+
+    @media screen and (max-width: 748px) {
+    display: block;
+    height:40px;
+    width:40px;
+    cursor: pointer;
+    position:absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, 25%);
 `;
 
 const NavMenu = styled.div`
