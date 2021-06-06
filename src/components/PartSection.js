@@ -1,32 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
-// import { IoGrid } from "react-icons/io5";
+
 const Section = styled.section`
   width: 100%;
   height: 100%;
-  padding: 4rem 120px;
-
-  @media screen and (max-width: 768px) {
-    padding: 4rem 0rem;
-  }
+  padding: 4rem 0rem;
+  background: #000c1a;
 `;
 const Container = styled.section`
-  padding: 3rem calc((100vw - 1300px) / 2);
   display: grid;
+  padding-left: 120px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 800px;
+  grid-template-rows: 350px;
+  background: #fff;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
+    padding: 0px;
   }
 `;
 
 const ColumnLeft = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
+  justify-content: center;
   line-height: 1.4;
   padding: 1rem 2rem;
   order: ${({ reverse }) => (reverse ? "2" : "1")};
@@ -42,7 +41,6 @@ const ColumnLeft = styled.section`
 `;
 
 const ColumnRight = styled.section`
-  padding: 1rem 2rem;
   order: ${({ reverse }) => (reverse ? "1" : "2")};
   display: flex;
   justify-content: center;
@@ -54,7 +52,7 @@ const ColumnRight = styled.section`
 
   img {
     width: 100%;
-    height: 100%;
+    height: 406px;
     object-fit: cover;
   }
 
@@ -64,7 +62,7 @@ const ColumnRight = styled.section`
   }
 `;
 
-const InfoSection = ({
+const PartSection = ({
   heading,
   paragraphOne,
   paragraphTwo,
@@ -91,4 +89,4 @@ const InfoSection = ({
   );
 };
 
-export default InfoSection;
+export default PartSection;

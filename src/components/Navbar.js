@@ -1,36 +1,36 @@
-import React from 'react';
-import styled, { css } from 'styled-components/macro';
-import { Link } from 'react-router-dom';
-import { menuData } from '../data/MenuData';
-import { Button }from './Button';
-import { AiOutlineBars } from 'react-icons/ai';
+import React from "react";
+import styled, { css } from "styled-components/macro";
+import { Link } from "react-router-dom";
+import { menuData } from "../data/MenuData";
+import { Button } from "./Button";
+import { HiMenuAlt3 } from "react-icons/hi";
 
-const Nav= styled.nav`
-    height:60px;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    z-index:100;
-    position: fixed;
-    width: 100%;
+const Nav = styled.nav`
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
 `;
 
 const NavLink = css`
-    color: #fff;
-    display: flex;
-    align-item: center;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
-    text-decoration: none;
-`
+  color: #fff;
+  display: flex;
+  align-item: center;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+`;
 
 const Logo = styled(Link)`
-    ${NavLink}
-    font-style: italic;
-    `;
+  ${NavLink}
+  font-style: italic;
+`;
 
-const MenuBars = styled(AiOutlineBars)`
+const MenuBars = styled(HiMenuAlt3)`
     display: none;
     color: #fff;
 
@@ -46,48 +46,48 @@ const MenuBars = styled(AiOutlineBars)`
 `;
 
 const NavMenu = styled.div`
-    display:flex;
-    align-items:center;
-    margin-right: -48px;
+  display: flex;
+  align-items: center;
+  margin-right: -48px;
 
-    @media screen and (max-width: 748px) {
-        display: none;
-    }
+  @media screen and (max-width: 748px) {
+    display: none;
+  }
 `;
 
 const NavBtn = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: 24px;
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
 
-    @media screen and (max-width: 748px) {
-        display: none;
-    }
-
+  @media screen and (max-width: 748px) {
+    display: none;
+  }
 `;
 
 const NavMenuLinks = styled(Link)`
-    ${NavLink}
+  ${NavLink}
 `;
 
+const Navbar = ({ toggle }) => {
+  return (
+    <Nav>
+      <Logo to="/">ELIXR</Logo>
+      <MenuBars onClick={toggle} />
+      <NavMenu>
+        {menuData.map((item, index) => (
+          <NavMenuLinks to={item.link} key={index}>
+            {item.title}
+          </NavMenuLinks>
+        ))}
+      </NavMenu>
+      <NavBtn>
+        <Button to="/contact" primary="true">
+          Contact us
+        </Button>
+      </NavBtn>
+    </Nav>
+  );
+};
 
-const Navbar = ({toggle}) => {
-    return (
-        <Nav>
-           <Logo to='/'>ELIXR</Logo>
-            <MenuBars onClick={toggle} />
-            <NavMenu>
-                {menuData.map((item, index)=> (
-                    <NavMenuLinks to={item.link} key={index}>
-                        {item.title}
-                    </NavMenuLinks>
-                ))}
-            </NavMenu>
-            <NavBtn>
-            <Button to="/contact" primary="true">Contact us</Button>
-            </NavBtn>
-        </Nav>
-    )
-}
-
-export default Navbar
+export default Navbar;
