@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
 import Hero from "./components/Hero";
 import InfoSection from "./components/InfoSection";
+import Footer from "./components/Footer";
 import PartSection from "./components/PartSection";
 import Navbar from "./components/Navbar";
 import { SliderData } from "./data/SliderData";
@@ -22,6 +23,7 @@ function App() {
       <InfoSection {...InfoData} />
       <PartSection {...InfoDataThree} />
       <InfoSection {...InfoDataTwo} />
+      <Footer />
     </>
   );
 }
