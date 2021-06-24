@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle `
+const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;
         padding: 0;
@@ -11,6 +11,16 @@ const GlobalStyle = createGlobalStyle `
     html, body {
         overflow-x: hidden;
     }
+
+   .navbar.active {
+    background: #FFFFFF;
+    opacity: .97;
+  }
+
+  .active .navlink {
+      color: #4a4a4a;
+      font-weight: 500;
+  }
 
 `;
 

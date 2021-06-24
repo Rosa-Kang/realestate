@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { menuData } from "../data/MenuData";
@@ -70,13 +70,27 @@ const NavMenuLinks = styled(Link)`
 `;
 
 const Navbar = ({ toggle }) => {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBackground);
+
   return (
-    <Nav>
-      <Logo to="/">ELIXR</Logo>
+    <Nav className={navbar ? "navbar active" : "navbar"}>
+      <Logo to="/" className="navlink">
+        ELIXR
+      </Logo>
       <MenuBars onClick={toggle} />
       <NavMenu>
         {menuData.map((item, index) => (
-          <NavMenuLinks to={item.link} key={index}>
+          <NavMenuLinks className="navlink" to={item.link} key={index}>
             {item.title}
           </NavMenuLinks>
         ))}
